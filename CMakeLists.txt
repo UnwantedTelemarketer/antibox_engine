@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.16)
 
-project(Zombos LANGUAGES CXX C)
+project(Game_Name LANGUAGES CXX C)
 
 # ------------------------------------------------------------
 # General compiler settings
@@ -148,23 +148,18 @@ else()
     ${CMAKE_SOURCE_DIR}/dat/
   )
 
-  add_custom_command(
-      TARGET Zombos POST_BUILD
-      COMMAND ${CMAKE_COMMAND} -E copy_directory
-  )
-
   set(RESOURCE_SOURCE_DIR ${CMAKE_SOURCE_DIR}/res)
   set(RESOURCE_DEST_DIR   ${CMAKE_BINARY_DIR}/bin/res)
 
   add_custom_command(
-      TARGET Zombos POST_BUILD
+      TARGET Game_Name POST_BUILD
       COMMAND ${CMAKE_COMMAND} -E copy_directory
               ${RESOURCE_SOURCE_DIR}
               ${RESOURCE_DEST_DIR}
   )
 
   add_custom_command(
-      TARGET Zombos POST_BUILD
+      TARGET Game_Name POST_BUILD
       COMMAND ${CMAKE_COMMAND} -E copy
           ${CMAKE_SOURCE_DIR}/imgui.ini
           ${CMAKE_BINARY_DIR}/bin
@@ -202,7 +197,7 @@ else()
   # ------------------------------------------------------------
   # Linker and compiler flags
   # ------------------------------------------------------------
-  target_compile_definitions(Zombos PRIVATE IMGUI_IMPL_OPENGL_LOADER_GLAD)
+  target_compile_definitions(Game_Name PRIVATE IMGUI_IMPL_OPENGL_LOADER_GLAD)
 
   target_link_libraries(glad PUBLIC OpenGL::GL)
   target_link_libraries(ImGui PUBLIC glfw OpenGL::GL)
