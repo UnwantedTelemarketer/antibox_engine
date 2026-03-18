@@ -21,7 +21,7 @@ A lightweight, cross-platform game engine built from scratch in C++ with a focus
 ### Build
 
 ```bash
-git clone https://github.com/yourusername/antibox.git
+git clone https://github.com/UnwantedTelemarketer/antibox_engine.git
 cd antibox
 mkdir build
 cd build
